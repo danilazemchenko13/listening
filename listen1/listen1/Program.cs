@@ -6,7 +6,8 @@ namespace listen1
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Hello World!");
-        }
+        } 
     }
 }
