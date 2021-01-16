@@ -7,41 +7,31 @@ namespace listen1
     {
         static void Main(string[] args)
         {
-            int[] array = MyArray();
-            AllAlimentArray(array);
-            int max = GetMaxAlement(array);
-            int min = GetMinAlement(array);
-            Console.WriteLine(max);
-            Console.WriteLine(min);
+            
+            int[] array2 = GetTwoAlement(MyArray());
+            AllAlimentArray(array2);
         }
         static int[] MyArray()
         {
-            int[] array = new int[] { 2, 12, 32, 34, 4, 7, 9, 6, 45, 554 };
+            int[] array = new int[] { 55, 32, 3, 34 };
             return array;
         }
-        static int GetMaxAlement(int [] array)
+        static int[] GetTwoAlement(int[] array)
         {
-            int max = array[0];
-            for(int i=0;i<array.Length;i++)
-            {
-                if (array[i]>max)
-                {
-                    max = array[i];
-                }
-            }
-            return max;
-        }
-        static int GetMinAlement(int[] array)
-        {
-            int min = array[0];
+            
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] < min)
+                for (int j = i + 1; j < array.Length; j++)
                 {
-                    min = array[i];
+                    if(array[i]>array[j])
+                    {
+                        int element = array[i];
+                        array[i] = array[j];
+                        array[j] = element;
+                    }
                 }
             }
-            return min;
+            return array;
         }
         static void AllAlimentArray(int[] array)
         {
@@ -53,6 +43,4 @@ namespace listen1
             Console.WriteLine("\nотдаю Корабах армянам");
         }
     }
-
-    
 }
